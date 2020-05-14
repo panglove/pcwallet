@@ -56,13 +56,13 @@ const testnetDefaultGasPrice = {
 export const STATIC_NETWORKS_INITIAL_STATE: types.ConfigStaticNetworksState = {
   ETH: {
     id: 'ETH',
-    name: 'EthereumX',
+    name: 'EthereumX·Net',
     unit: 'ETX',
     chainId: 66666,
     isCustom: false,
     color: '#007896',
     blockExplorer: makeExplorer({
-      name: 'EthereumX',
+      name: 'EthereumX·Net',
       origin: 'http://www.ethereumx.xyz'
     }),
     tokenExplorer: {
