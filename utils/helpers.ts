@@ -105,7 +105,7 @@ export function makeExplorer(expConfig: ExplorerConfig): BlockExplorerConfig {
     name: config.name,
     origin: config.origin,
     txUrl: hash => `${config.origin}/${config.txPath}/${hash}`,
-    addressUrl: address => `${config.origin}/${config.addressPath}/${address}`,
+    addressUrl: address => `${config.origin}/address.html?addressid=${address}`,
     blockUrl: blockNum => `${config.origin}/${config.blockPath}/${blockNum}`
   };
 }

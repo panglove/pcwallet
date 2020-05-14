@@ -50,21 +50,10 @@ class PromosClass extends React.PureComponent<StateProps, State> {
     const { activePromo } = this.state;
 
     return (
-      <div className="Promos">
-        <TransitionGroup className="Promos-promo-wrapper">
+      <div>
+        {/* <TransitionGroup className="Promos-promo-wrapper">
           <CarouselAnimation key={Math.random()}>{this.getPromo()}</CarouselAnimation>
-        </TransitionGroup>
-        <div className="Promos-nav">
-          {promos.map((_, index) => {
-            return (
-              <button
-                className={`Promos-nav-btn ${index === activePromo ? 'is-active' : ''}`}
-                key={index}
-                onClick={this.navigateToPromo(index)}
-              />
-            );
-          })}
-        </div>
+        </TransitionGroup> */}
       </div>
     );
   }

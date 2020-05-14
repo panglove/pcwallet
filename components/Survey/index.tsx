@@ -17,7 +17,7 @@ export default class Survey extends Component {
   };
 
   public render() {
-    if (this.state.displaySurvey) {
+    if (false) {
       return (
         <Container>
           <span>

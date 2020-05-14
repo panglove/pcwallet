@@ -133,7 +133,6 @@ class RootClass extends Component<Props, State> {
               <LegacyRoutes />
               <LogOutPrompt />
               <QrSignerModal />
-              {process.env.BUILD_ELECTRON && <NewAppReleaseModal />}
             </PageVisitsAnalytics>
           </Router>
         </Provider>

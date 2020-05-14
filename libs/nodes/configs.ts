@@ -8,22 +8,10 @@ export const makeNodeName = (network: string, name: string) => {
 export const NODE_CONFIGS: { [key in StaticNetworkIds]: RawNodeConfig[] } = {
   ETH: [
     {
-      name: makeNodeName('ETH', 'mycrypto'),
+      name: makeNodeName('ETX', 'ETX'),
       type: 'rpc',
-      service: 'MyCrypto',
-      url: 'https://api.mycryptoapi.com/eth'
-    },
-    {
-      name: makeNodeName('ETH', 'ethscan'),
-      type: 'etherscan',
-      service: 'Etherscan',
-      url: 'https://api.etherscan.io/api'
-    },
-    {
-      name: makeNodeName('ETH', 'infura'),
-      type: 'infura',
-      service: 'Infura',
-      url: 'https://mainnet.infura.io/v3/c02fff6b5daa434d8422b8ece54c7286'
+      service: 'ETX',
+      url: 'http://47.244.49.234:8080'
     }
   ],
 

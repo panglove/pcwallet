@@ -163,14 +163,14 @@ class AccountInfo extends React.Component<Props, State> {
                   </NewTabLink>
                 </li>
               )}
-              {network.id === 'ETH' && (
+              {network.id !== 'ETH' && (
                 <li className="AccountInfo-list-item">
                   <NewTabLink href={etherChainExplorerInst.addressUrl(address)}>
                     {`${network.name} (${etherChainExplorerInst.origin})`}
                   </NewTabLink>
                 </li>
               )}
-              {!!tokenExplorer && (
+              {network.id !== 'ETH' && !!tokenExplorer && (
                 <li className="AccountInfo-list-item">
                   <NewTabLink href={tokenExplorer.address(address)}>
                     {`Tokens (${tokenExplorer.name})`}

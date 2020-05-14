@@ -180,6 +180,16 @@ const WalletDecrypt = withRouter<Props>(
         unlock: this.props.unlockKeystore,
         helpLink: `${knowledgeBaseURL}/general-knowledge/ethereum-blockchain/difference-between-wallet-types`
       },
+      [MiscWalletName.VIEW_ONLY]: {
+        lid: 'VIEW_ADDR',
+        description: 'ADD_VIEW_ADDRESS_DESC',
+        component: ViewOnlyDecrypt,
+        initialParams: {},
+        unlock: this.props.setWallet,
+        helpLink: '',
+        isReadOnly: true,
+        redirect: '/account/info'
+      },
       [InsecureWalletName.MNEMONIC_PHRASE]: {
         lid: 'X_MNEMONIC',
         example: 'brain surround have swap horror cheese file distinct',
@@ -198,16 +208,6 @@ const WalletDecrypt = withRouter<Props>(
         },
         unlock: this.props.unlockPrivateKey,
         helpLink: `${knowledgeBaseURL}/general-knowledge/ethereum-blockchain/difference-between-wallet-types`
-      },
-      [MiscWalletName.VIEW_ONLY]: {
-        lid: 'VIEW_ADDR',
-        description: 'ADD_VIEW_ADDRESS_DESC',
-        component: ViewOnlyDecrypt,
-        initialParams: {},
-        unlock: this.props.setWallet,
-        helpLink: '',
-        isReadOnly: true,
-        redirect: '/account/info'
       }
     };
 
@@ -329,14 +329,13 @@ const WalletDecrypt = withRouter<Props>(
             </div>
           )}
           <div className="WalletDecrypt-wallets-row">
-            {HARDWARE_WALLETS.map((walletType: SecureWalletName) => {
+            {INSECURE_WALLETS.map((walletType: InsecureWalletName) => {
               const wallet = this.WALLETS[walletType];
               return (
                 <WalletButton
                   key={walletType}
                   name={translateRaw(wallet.lid)}
-                  description={translateRaw(wallet.description)}
-                  icon={wallet.icon}
+                  example={wallet.example}
                   helpLink={wallet.helpLink}
                   walletType={walletType}
                   isSecure={true}
@@ -348,23 +347,6 @@ const WalletDecrypt = withRouter<Props>(
             })}
           </div>
           <div className="WalletDecrypt-wallets-row">
-            {SECURE_WALLETS.map((walletType: SecureWalletName) => {
-              const wallet = this.WALLETS[walletType];
-              return (
-                <WalletButton
-                  key={walletType}
-                  name={translateRaw(wallet.lid)}
-                  description={translateRaw(wallet.description)}
-                  icon={wallet.icon}
-                  helpLink={wallet.helpLink}
-                  walletType={walletType}
-                  isSecure={true}
-                  isDisabled={this.isWalletDisabled(walletType)}
-                  disableReason={reasons[walletType]}
-                  onClick={this.handleWalletChoice}
-                />
-              );
-            })}
             {MISC_WALLETS.map((walletType: MiscWalletName) => {
               const wallet = this.WALLETS[walletType];
               return (
@@ -382,19 +364,36 @@ const WalletDecrypt = withRouter<Props>(
                 />
               );
             })}
-          </div>
-
-          <div className="WalletDecrypt-wallets-row">
-            {INSECURE_WALLETS.map((walletType: InsecureWalletName) => {
+            {SECURE_WALLETS.map((walletType: SecureWalletName) => {
               const wallet = this.WALLETS[walletType];
               return (
                 <WalletButton
                   key={walletType}
                   name={translateRaw(wallet.lid)}
-                  example={wallet.example}
+                  description={translateRaw(wallet.description)}
+                  icon={wallet.icon}
                   helpLink={wallet.helpLink}
                   walletType={walletType}
-                  isSecure={false}
+                  isSecure={true}
+                  isDisabled={this.isWalletDisabled(walletType)}
+                  disableReason={reasons[walletType]}
+                  onClick={this.handleWalletChoice}
+                />
+              );
+            })}
+          </div>
+          <div className="WalletDecrypt-wallets-row">
+            {HARDWARE_WALLETS.map((walletType: SecureWalletName) => {
+              const wallet = this.WALLETS[walletType];
+              return (
+                <WalletButton
+                  key={walletType}
+                  name={translateRaw(wallet.lid)}
+                  description={translateRaw(wallet.description)}
+                  icon={wallet.icon}
+                  helpLink={wallet.helpLink}
+                  walletType={walletType}
+                  isSecure={true}
                   isDisabled={this.isWalletDisabled(walletType)}
                   disableReason={reasons[walletType]}
                   onClick={this.handleWalletChoice}

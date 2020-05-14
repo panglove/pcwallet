@@ -174,7 +174,7 @@ class AdvancedGas extends React.Component<Props, State> {
   private getStandardFeeFormula({ gasPriceWei, gasLimit, fee, usd }: RenderData) {
     return (
       <span>
-        {gasPriceWei} * {gasLimit} = {fee} {usd && <span>~= ${usd} USD</span>}
+        {gasPriceWei} * {gasLimit} = {fee}
       </span>
     );
   }
