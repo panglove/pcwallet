@@ -130,7 +130,7 @@ const WalletDecrypt = withRouter<Props>(
         initialParams: {},
         unlock: this.props.unlockWeb3,
         attemptUnlock: true,
-        helpLink: `${knowledgeBaseURL}/how-to/migrating/moving-from-mycrypto-to-metamask`
+        helpLink: ``
       },
       [SecureWalletName.LEDGER_NANO_S]: {
         lid: 'X_LEDGER',
@@ -139,7 +139,7 @@ const WalletDecrypt = withRouter<Props>(
         component: LedgerNanoSDecrypt,
         initialParams: {},
         unlock: this.props.setWallet,
-        helpLink: 'https://support.ledger.com/hc/en-us/articles/360008268594'
+        helpLink: ''
       },
       [SecureWalletName.TREZOR]: {
         lid: 'X_TREZOR',
@@ -148,7 +148,7 @@ const WalletDecrypt = withRouter<Props>(
         component: TrezorDecrypt,
         initialParams: {},
         unlock: this.props.setWallet,
-        helpLink: `${knowledgeBaseURL}/how-to/migrating/moving-from-mycrypto-to-trezor`
+        helpLink: ``
       },
       [SecureWalletName.SAFE_T]: {
         lid: 'X_SAFE_T',
@@ -158,7 +158,7 @@ const WalletDecrypt = withRouter<Props>(
         initialParams: {},
         unlock: this.props.setWallet,
         // TODO - Update with the right id once available
-        helpLink: 'https://www.archos.com/fr/products/crypto/faq.html'
+        helpLink: ''
       },
       [SecureWalletName.PARITY_SIGNER]: {
         lid: 'X_PARITYSIGNER',
@@ -167,7 +167,7 @@ const WalletDecrypt = withRouter<Props>(
         component: ParitySignerDecrypt,
         initialParams: {},
         unlock: this.props.setWallet,
-        helpLink: paritySignerHelpLink
+        helpLink: ''
       },
       [InsecureWalletName.KEYSTORE_FILE]: {
         lid: 'X_KEYSTORE2',
@@ -178,7 +178,7 @@ const WalletDecrypt = withRouter<Props>(
           password: ''
         },
         unlock: this.props.unlockKeystore,
-        helpLink: `${knowledgeBaseURL}/general-knowledge/ethereum-blockchain/difference-between-wallet-types`
+        helpLink: ``
       },
       [MiscWalletName.VIEW_ONLY]: {
         lid: 'VIEW_ADDR',
@@ -196,7 +196,7 @@ const WalletDecrypt = withRouter<Props>(
         component: MnemonicDecrypt,
         initialParams: {},
         unlock: this.props.unlockMnemonic,
-        helpLink: `${knowledgeBaseURL}/general-knowledge/ethereum-blockchain/difference-between-wallet-types`
+        helpLink: ``
       },
       [InsecureWalletName.PRIVATE_KEY]: {
         lid: 'X_PRIVKEY2',
@@ -207,7 +207,7 @@ const WalletDecrypt = withRouter<Props>(
           password: ''
         },
         unlock: this.props.unlockPrivateKey,
-        helpLink: `${knowledgeBaseURL}/general-knowledge/ethereum-blockchain/difference-between-wallet-types`
+        helpLink: ``
       }
     };
 
@@ -364,43 +364,9 @@ const WalletDecrypt = withRouter<Props>(
                 />
               );
             })}
-            {SECURE_WALLETS.map((walletType: SecureWalletName) => {
-              const wallet = this.WALLETS[walletType];
-              return (
-                <WalletButton
-                  key={walletType}
-                  name={translateRaw(wallet.lid)}
-                  description={translateRaw(wallet.description)}
-                  icon={wallet.icon}
-                  helpLink={wallet.helpLink}
-                  walletType={walletType}
-                  isSecure={true}
-                  isDisabled={this.isWalletDisabled(walletType)}
-                  disableReason={reasons[walletType]}
-                  onClick={this.handleWalletChoice}
-                />
-              );
-            })}
+            
           </div>
-          <div className="WalletDecrypt-wallets-row">
-            {HARDWARE_WALLETS.map((walletType: SecureWalletName) => {
-              const wallet = this.WALLETS[walletType];
-              return (
-                <WalletButton
-                  key={walletType}
-                  name={translateRaw(wallet.lid)}
-                  description={translateRaw(wallet.description)}
-                  icon={wallet.icon}
-                  helpLink={wallet.helpLink}
-                  walletType={walletType}
-                  isSecure={true}
-                  isDisabled={this.isWalletDisabled(walletType)}
-                  disableReason={reasons[walletType]}
-                  onClick={this.handleWalletChoice}
-                />
-              );
-            })}
-          </div>
+         
 
           {this.props.showGenerateLink && (
             <div className="WalletDecrypt-wallets-generate">

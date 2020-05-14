@@ -37,10 +37,6 @@ export const navigationLinks: NavigationLink[] = [
     to: '/tx-status'
   },
   {
-    name: 'NAV_BROADCAST',
-    to: '/pushTx'
-  },
-  {
     name: 'NAV_HELP',
     to: knowledgeBaseURL,
     external: true

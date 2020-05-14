@@ -60,11 +60,13 @@ class ElectronNav extends React.Component<Props, State> {
 
         <div className="ElectronNav-controls">
           <button className="ElectronNav-controls-btn" onClick={this.openLanguageSelect}>
-            Change Language
+            {translate('Change_Language')}
+            
             <i className="ElectronNav-controls-btn-icon fa fa-arrow-circle-right" />
           </button>
           <button className="ElectronNav-controls-btn" onClick={this.openNodeSelect}>
-            Change Network
+            
+            {translate('Change_Network')}
             <i className="ElectronNav-controls-btn-icon fa fa-arrow-circle-right" />
           </button>
         </div>

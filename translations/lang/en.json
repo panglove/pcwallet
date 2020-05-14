@@ -107,6 +107,8 @@
     "ADD_LABEL_5": "Enter the Address ",
     "ADD_LABEL_6": "Unlock your Wallet ",
     "ADD_LABEL_6_SHORT": "Unlock ",
+
+    "address_same_alet":"you are sending transation to self ,are you sure?",
     "ADD_LABEL_7": "Add Account ",
     "ADD_LABEL_8": "Passphrase (optional): ",
     "ADD_LABEL_9": "add label",
@@ -578,6 +580,7 @@
     "TX_FEE_RECOMMENDED_SAFELOW": "(Safe Low)",
     "TX_FEE_RECOMMENDED_STANDARD": "(Standard)",
     "GAS_GWEI_COST": "$gas Gwei $recommended",
+    "Change_Network":"Change_Network",
     "CHANGE_WALLET": "Change Wallet",
     "REQUEST_PAYMENT_QR_TITLE": "Payment QR & Code",
     "ACCOUNT": "Account",

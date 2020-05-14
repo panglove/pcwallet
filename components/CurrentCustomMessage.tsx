@@ -9,6 +9,7 @@ import * as derivedSelectors from 'features/selectors';
 import { configSelectors } from 'features/config';
 import { walletSelectors } from 'features/wallet';
 import { Address } from 'components/ui';
+import translate from 'translations';
 
 interface ReduxProps {
   currentTo: ICurrentTo;
@@ -105,7 +106,7 @@ class CurrentCustomMessageClass extends PureComponent<Props, State> {
 
     // Finally check if they're sending to themselves (lol)
     if (walletAddress === address) {
-      message = 'You’re sending to yourself. Are you sure you want to do that?';
+      message = translate('address_same_alet');
       severity = 'warning';
     }
 
